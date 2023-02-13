@@ -5,8 +5,8 @@ const exercisesByPart = db.exercisesToParts
 class exercisesByPartDataAccessor {
 
    // קודי תרגילים לפי קוד אזור
-    getLessonsByPart = async (partId) => {
-        const exercises = await exercisesByPart.findAll({where:{id:partId}});
+    getExercisByPart = async (partId) => {
+        const exercises = await exercisesByPart.findAll({where:{partCode:partId}});
         return exercises;
     }
 }

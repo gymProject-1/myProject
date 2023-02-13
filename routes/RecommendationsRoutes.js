@@ -4,6 +4,7 @@ const RecommendationsController = require('../controllers/UserRecommendationsCon
 
 
 router.route('/:partName')
-    .get(RecommendationsController.getAllLesonssByPart)// to do for exercise
+   // .get(RecommendationsController.getAllLesonssByPart)// to do for exercise
+    .get(RecommendationsController.getAllExercisesByPart)
 module.exports = router
 
