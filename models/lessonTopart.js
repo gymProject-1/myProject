@@ -8,14 +8,14 @@ const {sequelize, DataTypes} = require('./sequelize')
                 allowNull: false,
                 autoIncrement: true
             },
-            partCode: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
-            lessonCode: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
+            // partCode: {
+            //     type: DataTypes.INTEGER,
+            //     allowNull: false
+            // },
+            // lessonCode: {
+            //     type: DataTypes.INTEGER,
+            //     allowNull: false
+            // },
         },
         {
             timestamps: false,

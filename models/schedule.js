@@ -16,18 +16,18 @@ const {sequelize, DataTypes} = require('./sequelize')
         type: DataTypes.TIME(6),//check  ?
         allowNull: false,
       },
-      LessonType: {
-        type: DataTypes.INTEGER,
-        allowNull: true //fix
-      },
-      guiedId: {
-        type: DataTypes.STRING(30),
-        allowNull: true
-      },
-      ActiveType: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
+      // LessonType: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: true //fix
+      // },
+      // guiedId: {
+      //   type: DataTypes.STRING(30),
+      //   allowNull: true
+      // },
+      // ActiveType: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false
+      // },
     },
     {
       timestamps: false,

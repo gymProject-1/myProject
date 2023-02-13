@@ -10,10 +10,10 @@ const {sequelize, DataTypes} = require('./sequelize')
             type: DataTypes.DATEONLY,
             allowNull: false
           },
-          member_id: {
-            type: DataTypes.STRING(30),
-            allowNull: false
-          },
+          // member_id: {
+          //   type: DataTypes.STRING(30),
+          //   allowNull: false
+          // },
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
