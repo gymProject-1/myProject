@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const {sequelize, DataTypes} = require('./sequelize')
   const Schedule = sequelize.define(
     "schedule",
     {
@@ -33,5 +33,4 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  return Schedule;
-};
+  module.exports = Schedule

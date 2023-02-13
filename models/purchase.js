@@ -1,6 +1,6 @@
-const { DATEONLY,YEAR } = require("sequelize");
+const { sequelize, DataTypes } = require("./sequelize");
 
-module.exports = (sequelize, DataTypes) => {
+
     const Purchase = sequelize.define(
       "purchase",
       {
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
           startDate: {
       
             allowNull: false,
-            type:DATEONLY
+            type:DataTypes.DATEONLY
           }
          ,numEnters:
          {
@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false,
     }
     );
-    return Purchase;
-  };
+
+    module.exports = Purchase
   
   
   

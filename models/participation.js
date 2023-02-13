@@ -1,7 +1,6 @@
 
 const { DATEONLY } = require("sequelize");
-
-module.exports = (sequelize, DataTypes) => {
+const {sequelize, DataTypes} = require('./sequelize')
     const Participation = sequelize.define(
       "participation",
       {    
@@ -56,6 +55,5 @@ module.exports = (sequelize, DataTypes) => {
       }
      
     );
-    return Participation;
-  };
+    module.exports = Participation
   

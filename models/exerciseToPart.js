@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const {sequelize, DataTypes} = require('./sequelize')
     const exercisesToParts = sequelize.define(
         "exerciseToParts",
         {
@@ -21,5 +21,4 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false,
         }
     );
-    return exercisesToParts;
-};
+    module.exports=exercisesToParts;
