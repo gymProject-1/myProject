@@ -9,7 +9,7 @@ getAllMeasurementsByUserId = async (_Id) => {
     const measurement = await Measurement.findAll({where: { member_id: _Id }});
    return measurement;
 }
-//add Measurement - to check the id increasre!!!!!!!!
+//add Measurement
 addNewMeasurement = async(weight, measureDate, member_id,height,WaistCircumference,HipCircumference)=>{
         const measurement = await Measurement.create({weight, measureDate, member_id,height,WaistCircumference,HipCircumference});
         if(measurement){

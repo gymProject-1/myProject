@@ -20,6 +20,7 @@
     "sequelize": "^6.28.0"
   },
   "devDependencies": {
+    "@types/node": "^18.13.0",
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
   }
