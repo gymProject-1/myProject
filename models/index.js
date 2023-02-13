@@ -39,6 +39,11 @@ db.gymGuides = require('./gymguide')(sequelize, DataTypes);
 db.activeTypes = require('./activeType')(sequelize, DataTypes);
 db.schedules = require('./schedule')(sequelize, DataTypes);
 
+db.bodyParts = require('./bodyPart')(sequelize, DataTypes);
+db.exercisesToParts = require('./exerciseToPart')(sequelize, DataTypes);
+db.gymNastics = require('./gymnastic')(sequelize, DataTypes);
+db.lessonsToPart = require('./lessonTopart')(sequelize, DataTypes);
+
 db.sequelize.sync({ force: false })
   .then(() => {
     console.log('yes re-sync done!')
