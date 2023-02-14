@@ -6,12 +6,12 @@ class MeasurementsDataAccessor {
 // Get all Measurement by userId from DB
 getAllMeasurementsByUserId = async (_Id) => {
     console.log(_Id);
-    const measurement = await Measurement.findAll({where: { member_id: _Id }});
+    const measurement = await Measurement.findAll({where: { userId: _Id }});
    return measurement;
 }
 //add Measurement
-addNewMeasurement = async(weight, measureDate, member_id,height,WaistCircumference,HipCircumference)=>{
-        const measurement = await Measurement.create({weight, measureDate, member_id,height,WaistCircumference,HipCircumference});
+addNewMeasurement = async(weight, measureDate, userId,height,WaistCircumference,HipCircumference)=>{
+        const measurement = await Measurement.create({weight, measureDate, userId,height,WaistCircumference,HipCircumference});
         if(measurement){
             return 1
         } else {

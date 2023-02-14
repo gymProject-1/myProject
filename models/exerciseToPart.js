@@ -1,5 +1,6 @@
 const {sequelize, DataTypes} = require('./sequelize')
-    const exercisesToParts = sequelize.define(
+
+const exercisesToParts = sequelize.define(
         "exerciseToParts",
         {
             id: {

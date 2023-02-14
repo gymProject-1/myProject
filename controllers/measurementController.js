@@ -3,9 +3,9 @@ const measurementDal = require("../dal/measurement-DB-accessor");
 
 class measurementsController {
      getAllMeasurementsByUserId=async(req,res)=>{
-        const member_id = req.params.id;
-        console.log(member_id);
-        const measurements = await measurementDal.getAllMeasurementsByUserId(member_id);
+        const userId = req.params.id;
+        console.log(userId);
+        const measurements = await measurementDal.getAllMeasurementsByUserId(userId);
     if(!measurements?.length){
         return res.status(400).json({message: 'No measurements found'})
     }
@@ -14,11 +14,11 @@ class measurementsController {
 
 //add new Measurement
 createNewMeasurement = async(req, res)=>{
-    const {weight, measureDate, member_id,height,WaistCircumference,HipCircumference} = req.body
-    if(!weight || !measureDate || !member_id || !height || !WaistCircumference ||!HipCircumference){
+    const {weight, measureDate, userId,height,WaistCircumference,HipCircumference} = req.body
+    if(!weight || !measureDate || !userId || !height || !WaistCircumference ||!HipCircumference){
         return res.status(400).json({message: 'All fields are required'})
     }
-   const measurement= await measurementDal.addNewMeasurement(weight, measureDate, member_id,height,WaistCircumference,HipCircumference);
+   const measurement= await measurementDal.addNewMeasurement(weight, measureDate,userId,height,WaistCircumference,HipCircumference);
     if(measurement){
         return res.status(201).json({message: 'New measurement created'})
     } else {
