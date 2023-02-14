@@ -19,7 +19,7 @@ class LessonsDataAccessor {
     getLessonName = async (_id) => {
         const lesson = await Lesson.findOne({ where: { id: _id }, attributes: ['name'] }); 
         var l= lesson.dataValues['name'];
-        console.log("inn              "+l);
+       // console.log("inn              "+l);
         return l;
     }
 
