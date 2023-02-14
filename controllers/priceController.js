@@ -1,6 +1,4 @@
-
 const pricesDal = require("../dal/price-DB-accessor");
-
 
 class PricesController {
 

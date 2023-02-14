@@ -11,14 +11,8 @@ class PurchasesController {
         }
         res.json(purchases + purchases.purchaseId)
     }
-<<<<<<< HEAD
-    getAllPurchasesByMemberId = async (req, res) => {
-        const purchases = await purchaseDal.getPurchasesByMemberId(req.params.id);
-=======
-
     getAllPurchasesByUserId = async (req, res) => {
         const purchases = await purchaseDal.getPurchasesByUserId(req.params.id);
->>>>>>> 11e882431cd15122b3c69bf6bf9d78a42833fb8e
         if (!purchases?.length) {
             return res.status(400).json({ message: 'No purchase found' })
         }
@@ -38,16 +32,6 @@ class PurchasesController {
     }
 
     updateNumEnterById = async (req, res) => {
-
-<<<<<<< HEAD
-        const { memberId, numEnters } = req.body;
-
-        if (!memberId || !numEnters)
-            return res.status(400).json({ message: 'All fields are required' })
-
-        const purchases = await purchaseDal.getPurchasesByMemberId(memberId);
-        if (!purchases) {
-=======
         const { userId, numEnters } = req.body
         // Confirm data
         if (!userId || !numEnters)
@@ -55,7 +39,6 @@ class PurchasesController {
 
         const purchases = await purchaseDal.getPurchasesByUserId(userId);
         if (!purchases?.length) {
->>>>>>> 11e882431cd15122b3c69bf6bf9d78a42833fb8e
             return res.status(400).json({ message: 'No purchase found' })
         }
         else {

@@ -11,22 +11,14 @@ class ParticipationsDataAccessor {
     const participations = await Participations.findAll({ where: { userId: id } });
     return participations;
   }
-<<<<<<< HEAD
-
-
   //to check
   getLastParticipationByMemberId = async (id) => {
     const participations = await Participations.findAll({ where: { memberId: id },order:[['dateLesson','DESC']] });
     const lastLesson = participations[0];
     return lastLesson;
   }
-
-  createParticipation = async (memberId, guideName, dateLesson, lessonType, hour, grading) => {
-    const participation = await Participations.create({ memberId, guideName, dateLesson, lessonType, hour, grading });
-=======
   createParticipation = async (userId, guideName, dateLesson, lessonType, hour, grading ) => {
     const participation = await Participations.create({userId, guideName, dateLesson, lessonType, hour, grading });
->>>>>>> 11e882431cd15122b3c69bf6bf9d78a42833fb8e
     return participation;
   }
 
