@@ -11,12 +11,8 @@ const applyExtraSetup = () => {
   
   exerciseToParts.belongsTo(bodyPart, { foreignKey: "partCode", as: "body_Part" });
   exerciseToParts.belongsTo(gymnastics, { foreignKey: "exerciseCode", as: "exercise_Code" });
-<<<<<<< HEAD
-  lessonToPart.belongsTo(bodyPart, { foreignKey: "partCode", as: "bodyPart" });
-=======
- 
+
   lessonToPart.belongsTo(bodyPart, { foreignKey: "partCode", as: "body_Part" });
->>>>>>> 11e882431cd15122b3c69bf6bf9d78a42833fb8e
   lessonToPart.belongsTo(lesson, { foreignKey: "lessonCode", as: "lesson_Code" });
   
   measurement.belongsTo(user, { foreignKey: "userId", as: "user" });
