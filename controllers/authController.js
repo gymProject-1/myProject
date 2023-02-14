@@ -2,7 +2,7 @@ const db = require('../models/index')
 const User = db.users
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
+const email=require('../utils/email')
 
 const login = async (req, res) => {
     const { gmail, password } = req.body
@@ -42,6 +42,7 @@ const register = async (req, res) => {
 
     const user = await User.create(userObject)
     if (user) { // Created
+        const status = await email.sentMail(gmail);
         return res.status(201).json({
             message: `New user ${user.gmail} created`
         })
