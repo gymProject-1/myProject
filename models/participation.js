@@ -12,13 +12,13 @@ const Participation = sequelize.define(
       allowNull: false
     },
 
-    //   memberId: {
+      userId: {
 
-    //     type: DataTypes.STRING(30),
-    //     allowNull: false
-    //   // references: 'members', 
-    //   //  referencesKey: 'gmail'
-    //  },
+        type: DataTypes.STRING(30),
+        allowNull: false
+      // references: 'user', 
+      //  referencesKey: 'gmail'
+     },
     guideName:
     {
       type: DataTypes.STRING(30),

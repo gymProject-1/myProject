@@ -11,10 +11,11 @@ const { sequelize, DataTypes } = require("./sequelize");
           allowNull: false
        
         },
-        memberId: {
+        userId: {
             type: DataTypes.STRING(30),
             allowNull: false,
-        },
+       
+          },
           startDate: {
       
             allowNull: false,
@@ -29,6 +30,7 @@ const { sequelize, DataTypes } = require("./sequelize");
         type: {
           type: DataTypes.INTEGER,
           allowNull: false,
+        
         },
        
       },

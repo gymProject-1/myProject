@@ -14,8 +14,8 @@ getAllParticipations=async(req,res)=>{
     res.json(participations)
 }
 
-getAllParticipationByMemberId=async(req,res)=>{
-    const participation = await participationDal.getAllParticipationsByMemberId(req.params.id);
+getAllParticipationByUserId=async(req,res)=>{
+    const participation = await participationDal.getAllParticipationsByUserId(req.params.id);
      if(!participation){
     return res.status(400).json({message: 'No participation found'})
 }
@@ -23,11 +23,11 @@ res.json(participation)
 }
 
 createParticipation=async(req,res)=>{
-    const {memberId,guideName,dateLesson,lessonType,hour,grading} = req.body
+    const {userId,guideName,dateLesson,lessonType,hour,grading} = req.body
     // Confirm data
-    if (!memberId ||  !guideName||  !dateLesson||  !lessonType||  !hour) 
+    if (!userId ||  !guideName||  !dateLesson||  !lessonType||  !hour) 
       return res.status(400).json({ message: 'All fields are required' })
-    const participation= await participationDal.createParticipation(memberId,guideName,dateLesson,lessonType,hour,grading)
+    const participation= await participationDal.createParticipation(userId,guideName,dateLesson,lessonType,hour,grading)
     
      if(participation){ // Created 
         return res.status(400).json({message:'New participation created'})}

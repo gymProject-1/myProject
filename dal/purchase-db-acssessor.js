@@ -8,13 +8,13 @@ class PurchasesDataAccessor {
         const purchases = await Purchases.findAll({})
         return purchases;
     }
-    getPurchasesByMemberId = async (id) => {
-        const purchases = await Purchases.findAll({ where: { memberId: id } });
+    getPurchasesByUserId = async (id) => {
+        const purchases = await Purchases.findAll({ where: { userId: id } });
         return purchases;
     }
     
-    createNewPurchase = async (memberId, type, numEnters, startDate) => {
-        const purchase = await Purchases.create({ memberId, type, numEnters, startDate });
+    createNewPurchase = async (userId, type, numEnters, startDate) => {
+        const purchase = await Purchases.create({ userId, type, numEnters, startDate });
     }
 
     updateNumEnterById = async (numEnter, _purchaseId) => {

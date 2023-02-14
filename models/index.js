@@ -1,5 +1,5 @@
-const {Sequelize} = require('sequelize');
-const {sequelize} = require('./sequelize');
+const { Sequelize } = require('sequelize');
+const { sequelize } = require('./sequelize');
 const { applyExtraSetup } = require('./extra-setup');
 
 const db = {}
@@ -11,11 +11,11 @@ db.lessons = require('./lesson');
 db.prices = require('./price');
 db.purchases = require('./purchase');
 db.measurements = require('./measurement');
-db.members = require('./member');
+db.users = require('./user');
 db.gymGuides = require('./gymguide');
 db.activeTypes = require('./activeType');
 db.schedules = require('./schedule');
-
+db.participation=require('./participation');
 db.bodyParts = require('./bodyPart');
 db.exercisesToParts = require('./exerciseToPart');
 db.gymNastics = require('./gymnastic');
@@ -24,8 +24,8 @@ db.lessonsToPart = require('./lessonTopart');
 //********************END MODELS*********************//
 applyExtraSetup();
 
-db.sequelize.sync({ alter: true })
-.then(() => {
-    console.log('yes re-sync done!')
-})
+db.sequelize.sync({ force: true })
+    .then(() => {
+        console.log('yes re-sync done!')
+    })
 module.exports = db

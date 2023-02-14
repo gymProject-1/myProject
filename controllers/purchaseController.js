@@ -17,20 +17,20 @@ class PurchasesController {
         res.json(purchases + purchases.purchaseId)
     }
 
-    getAllPurchasesByMemberId = async (req, res) => {
-        const purchases = await purchaseDal.getPurchasesByMemberId(req.params.id);
+    getAllPurchasesByUserId = async (req, res) => {
+        const purchases = await purchaseDal.getPurchasesByUserId(req.params.id);
         if (!purchases?.length) {
             return res.status(400).json({ message: 'No purchase found' })
         }
         res.json(purchases)
     }
     createNewPurchase = async (req, res) => {
-        const { memberId, numEnters, type, startDate } = req.body
+        const { userId, numEnters, type, startDate } = req.body
 
-        if (!memberId || !numEnters || !type || !startDate)
+        if (!userId || !numEnters || !type || !startDate)
             return res.status(400).json({ message: 'All fields are required' })
 
-        const purchase = await purchaseDal.createNewPurchase(memberId, type, numEnters, startDate)
+        const purchase = await purchaseDal.createNewPurchase(userId, type, numEnters, startDate)
 
         if (purchase)
             return res.status(400).json({ message: 'Invalid purchase data received' })
@@ -39,12 +39,12 @@ class PurchasesController {
     }
     updateNumEnterById = async (req, res) => {
 
-        const { memberId, numEnters } = req.body
+        const { userId, numEnters } = req.body
         // Confirm data
-        if (!memberId || !numEnters)
+        if (!userId || !numEnters)
             return res.status(400).json({ message: 'All fields are required' })
 
-        const purchases = await purchaseDal.getPurchasesByMemberId(memberId);
+        const purchases = await purchaseDal.getPurchasesByUserId(userId);
         if (!purchases?.length) {
             return res.status(400).json({ message: 'No purchase found' })
         }

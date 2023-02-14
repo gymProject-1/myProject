@@ -1,23 +1,25 @@
+const { Console } = require("console");
 const { sequelize } = require("./sequelize");
 
 
 const applyExtraSetup = () => {
-  const { purchase, price, exerciseToParts, bodyPart, gymnastics, lessonToPart, lesson, measurement, member, participation, schedule, gymGuide, activeType } = sequelize.models;
+  const { purchase, price, exerciseToParts, bodyPart, gymnastics, lessonToPart, lesson, measurement, user, participation, schedule, gymGuide, activeType } = sequelize.models;
+  console.log(participation)
+ 
   purchase.belongsTo(price, { foreignKey: "type", as: "priceType" });
-  purchase.belongsTo(member, { foreignKey: "memberId", as: "member_Id" });
-  exerciseToParts.belongsTo(bodyPart, { foreignKey: "partCode", as: "bodyPart" });
+  purchase.belongsTo(user, { foreignKey: "userId", as: "user" });
+  
+  exerciseToParts.belongsTo(bodyPart, { foreignKey: "partCode", as: "body_Part" });
   exerciseToParts.belongsTo(gymnastics, { foreignKey: "exerciseCode", as: "exercise_Code" });
-  //not good:
-  lessonToPart.belongsTo(bodyPart, { foreignKey: "partCode", as: "bodyPart" });
+ 
+  lessonToPart.belongsTo(bodyPart, { foreignKey: "partCode", as: "body_Part" });
   lessonToPart.belongsTo(lesson, { foreignKey: "lessonCode", as: "lesson_Code" });
-  measurement.belongsTo(member, { foreignKey: "gmail", as: "memberId" });
-  //3-????
-  //participation.belongsTo(member, { foreignKey: "gmail", as: "memberId" });
-  // participation.belongsTo(gymGuide, { foreignKey: "gmail", as: "guiedId" });
-  // participation.belongsTo(lesson, { foreignKey: "id", as: "lessonCode" });
+  
+  measurement.belongsTo(user, { foreignKey: "userId", as: "user" });
+  participation.belongsTo(user, { foreignKey: "userId", as: "user" });
 
   schedule.belongsTo(lesson, { foreignKey: "LessonType", as: "lessonCode" });
   schedule.belongsTo(activeType, { foreignKey: "ActiveType", as: "activityType" });
-  schedule.belongsTo(gymGuide, { foreignKey: "guiedId", as: "guied_Id" });
+  schedule.belongsTo(gymGuide, { foreignKey: "guiedId", as: "guied" });
 };
 module.exports = { applyExtraSetup };
