@@ -22,7 +22,8 @@ app.use('/', require('./routes/root'))
 //app.use("/api/schedules", require("./routes/scheduleRoutes"));
 //app.use("/api/users", require("./routes/userRoutes"));
 //app.use("/api/secretary", require("./routes/secretaryRoutes"));
-app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));
+// app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));
+app.use("/api/participations", require("./routes/participationRoutes"))
 
 app.all('*', (req, res) => {
     res.status(404)

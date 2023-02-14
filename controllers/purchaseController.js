@@ -1,12 +1,7 @@
-
-
-
-
+const e = require("express");
+const { now } = require("sequelize/types/utils");
 const purchaseDal = require("../dal/purchase-DB-acssessor");
-
-
 class PurchasesController {
-
     getAllPurchases = async (req, res) => {
 
         const purchases = await purchaseDal.getAllPurchases();
@@ -16,7 +11,6 @@ class PurchasesController {
         }
         res.json(purchases + purchases.purchaseId)
     }
-
     getAllPurchasesByMemberId = async (req, res) => {
         const purchases = await purchaseDal.getPurchasesByMemberId(req.params.id);
         if (!purchases?.length) {
@@ -35,31 +29,42 @@ class PurchasesController {
         if (purchase)
             return res.status(400).json({ message: 'Invalid purchase data received' })
         return res.status(201).json({ message: 'New purchase created' })
-
     }
+
     updateNumEnterById = async (req, res) => {
 
-        const { memberId, numEnters } = req.body
-        // Confirm data
+        const { memberId, numEnters } = req.body;
+
         if (!memberId || !numEnters)
             return res.status(400).json({ message: 'All fields are required' })
 
         const purchases = await purchaseDal.getPurchasesByMemberId(memberId);
-        if (!purchases?.length) {
+        if (!purchases) {
             return res.status(400).json({ message: 'No purchase found' })
         }
-       // purchases.forEach(purchase => {
-// if( purchase.startDate )
-//         });Date.now
-
-//         return res.status(400).json({ message: 'purchase not found' })
-
-
+        else {
+            purchases.forEach(e => {
+                const validTermAndNum = 0;
+                //דרך נאיבית וגרועה
+                now1 = Date.now();
+                if (e.type == 1) {
+                    // if() chat gpt
+                    if (e.numEnters > 1) {
+                        validTermAndNum = 1;
+                    }
+                }
+                else if (e.type == 2) {
+                }
+                if (validTermAndNum) {
+                    const p = purchaseDal.updateNumEnterById(numEnters, e.purchaseId)
+                    if (p) {
+                        return res.status(201).json({ message: 'enter success' })
+                    }
+                }
+            });
+            return res.status(400).json({ message: 'unsuccess enter' })
+        }
     }
-
-
-
-
 }
 
 const purchasesController = new PurchasesController();

@@ -7,7 +7,6 @@ const applyExtraSetup = () => {
   purchase.belongsTo(member, { foreignKey: "memberId", as: "member_Id" });
   exerciseToParts.belongsTo(bodyPart, { foreignKey: "partCode", as: "bodyPart" });
   exerciseToParts.belongsTo(gymnastics, { foreignKey: "exerciseCode", as: "exercise_Code" });
-  //not good:
   lessonToPart.belongsTo(bodyPart, { foreignKey: "partCode", as: "bodyPart" });
   lessonToPart.belongsTo(lesson, { foreignKey: "lessonCode", as: "lesson_Code" });
   measurement.belongsTo(member, { foreignKey: "gmail", as: "memberId" });
